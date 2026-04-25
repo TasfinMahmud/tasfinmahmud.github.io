@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasfin Mahmud — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #A855F7;
+      --primary-light: #C084FC;
+      --accent: #06B6D4;
+      --bg: #ffffff;
+      --bg-section: #f8f9fc;
+      --text: #1a1a2e;
+      --text-secondary: #4a5568;
+      --text-muted: #718096;
+      --border: #e2e8f0;
+      --link: #A855F7;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .resume {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    /* Header */
+    .resume-header {
+      background: linear-gradient(135deg, #0A0A0F 0%, #1a1a2e 100%);
+      color: white;
+      padding: 48px 48px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .resume-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(168,85,247,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .resume-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-name {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+
+    .header-name span {
+      background: linear-gradient(135deg, #A855F7, #06B6D4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header-title {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #C084FC;
+      margin-bottom: 16px;
+    }
+
+    .header-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: #94A3B8;
+    }
+
+    .header-contact a {
+      color: #94A3B8;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .header-contact a:hover { color: #C084FC; }
+
+    .contact-dot {
+      width: 4px;
+      height: 4px;
+      background: #4a5568;
+      border-radius: 50%;
+    }
+
+    /* Body */
+    .resume-body {
+      padding: 36px 48px 48px;
+    }
+
+    /* Section */
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--primary);
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Education */
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    .edu-school {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .edu-degree {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .edu-date {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .edu-details {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* Experience / Projects */
+    .item {
+      margin-bottom: 18px;
+    }
+
+    .item:last-child { margin-bottom: 0; }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    .item-title {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .item-title a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--primary);
+    }
+
+    .item-title a:hover {
+      color: var(--primary);
+    }
+
+    .item-subtitle {
+      font-size: 0.88rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .item-date {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .item-desc {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    .item-bullets {
+      list-style: none;
+      margin-top: 6px;
+    }
+
+    .item-bullets li {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 3px;
+      line-height: 1.5;
+    }
+
+    .item-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 6px;
+    }
+
+    .tech-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      background: rgba(168, 85, 247, 0.08);
+      color: var(--primary);
+      border-radius: 4px;
+      border: 1px solid rgba(168, 85, 247, 0.15);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 32px;
+    }
+
+    .skill-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .skill-category {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+      min-width: 90px;
+    }
+
+    .skill-list {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* Coursework */
+    .coursework {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* Activities */
+    .activity-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .activity-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .activity-detail {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* Print Styles */
+    @media print {
+      body { background: white; }
+      .resume { max-width: 100%; }
+      .resume-header { padding: 32px 40px 28px; }
+      .resume-body { padding: 24px 40px 32px; }
+      .section { margin-bottom: 20px; }
+      .item { margin-bottom: 14px; }
+      .no-print { display: none; }
+
+      @page {
+        margin: 0;
+        size: letter;
+      }
+    }
+
+    /* Download Button */
+    .download-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, #0A0A0F, #1a1a2e);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      z-index: 100;
+      border-bottom: 1px solid rgba(168,85,247,0.2);
+    }
+
+    .download-bar span {
+      color: #94A3B8;
+      font-size: 0.85rem;
+    }
+
+    .download-btn {
+      padding: 8px 20px;
+      background: linear-gradient(135deg, #A855F7, #06B6D4);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: transform 0.2s;
+    }
+
+    .download-btn:hover { transform: translateY(-1px); }
+
+    .back-btn {
+      padding: 8px 20px;
+      background: transparent;
+      color: #94A3B8;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: inherit;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .back-btn:hover {
+      border-color: rgba(168,85,247,0.3);
+      color: #C084FC;
+    }
+
+    .spacer { height: 56px; }
+  </style>
+</head>
+<body>
+
+  <!-- Download Bar -->
+  <div class="download-bar no-print">
+    <a href="/" class="back-btn">← Back to Portfolio</a>
+    <span>Tasfin Mahmud — Resume</span>
+    <button class="download-btn" onclick="window.print()">📄 Download PDF</button>
+  </div>
+
+  <div class="spacer no-print"></div>
+
+  <div class="resume">
+    <!-- Header -->
+    <header class="resume-header">
+      <div class="header-content">
+        <h1 class="header-name">Tasfin <span>Mahmud</span></h1>
+        <p class="header-title">MERN Stack Developer · AI Fintech Researcher · GSoC '27 Aspirant</p>
+        <div class="header-contact">
+          <a href="mailto:tasfinmahmud1@gmail.com">✉ tasfinmahmud1@gmail.com</a>
+          <span class="contact-dot"></span>
+          <a href="https://tasfinmahmud.github.io" target="_blank">🌐 tasfinmahmud.github.io</a>
+          <span class="contact-dot"></span>
+          <a href="https://github.com/TasfinMahmud" target="_blank">⌘ github.com/TasfinMahmud</a>
+          <span class="contact-dot"></span>
+          <a href="https://linkedin.com/in/tasfin-mahmud-737a56329" target="_blank">in linkedin.com/in/tasfin-mahmud</a>
+          <span class="contact-dot"></span>
+          <span>📍 Dhaka, Bangladesh</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Body -->
+    <div class="resume-body">
+
+      <!-- Summary -->
+      <div class="section">
+        <h2 class="section-title">Summary</h2>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">
+          Passionate Computer Science undergraduate with a Mathematics minor, specializing in full-stack MERN development and AI-powered fintech applications. Experienced in building production-ready web applications with clean architecture and modern UI/UX. Actively preparing for Google Summer of Code 2027 with strong open-source contributions. Combines mathematical rigor with practical engineering to deliver impactful software solutions.
+        </p>
+      </div>
+
+      <!-- Education -->
+      <div class="section">
+        <h2 class="section-title">Education</h2>
+        <div class="edu-item">
+          <div>
+            <div class="edu-school">BRAC University</div>
+            <div class="edu-degree">Bachelor of Science in Computer Science · Minor in Mathematics</div>
+            <div class="edu-details">Relevant Coursework: Data Structures & Algorithms, Machine Learning, Stochastic Processes, Operations Research, Object-Oriented Programming, Database Systems, Discrete Mathematics</div>
+          </div>
+          <div class="edu-date">Sep 2022 — May 2027</div>
+        </div>
+      </div>
+
+      <!-- Technical Skills -->
+      <div class="section">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-row">
+            <span class="skill-category">Languages</span>
+            <span class="skill-list">JavaScript, TypeScript, Python, Java, C/C++, SQL</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-category">Frontend</span>
+            <span class="skill-list">React, Next.js, HTML5, CSS3, Tailwind CSS</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-category">Backend</span>
+            <span class="skill-list">Node.js, Express.js, Flask, REST APIs</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-category">Databases</span>
+            <span class="skill-list">MongoDB, Firebase, MySQL, PostgreSQL</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-category">AI / ML</span>
+            <span class="skill-list">NLP, Sentiment Analysis, Gemini API, scikit-learn</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-category">DevOps</span>
+            <span class="skill-list">Git, Docker, Linux, GitHub Actions, AWS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects -->
+      <div class="section">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title"><a href="https://tasfinmahmud.github.io/fintrack-dashboard/" target="_blank">FinTrack Dashboard</a> — <span class="item-subtitle">AI-Powered Financial Analytics</span></div>
+            <span class="item-date">2025</span>
+          </div>
+          <ul class="item-bullets">
+            <li>Built a real-time financial tracking dashboard with portfolio analytics, spending categorization, and AI-driven insights</li>
+            <li>Implemented interactive Chart.js visualizations (line, pie, bar) with dynamic data rendering and dark glassmorphism UI</li>
+            <li>Engineered responsive design achieving 100% mobile compatibility with smooth animations and accessibility standards</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Chart.js</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">Responsive Design</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title"><a href="https://tasfinmahmud.github.io/ai-sentiment-analyzer/" target="_blank">AI Sentiment Analyzer</a> — <span class="item-subtitle">NLP-Based Emotion Detection</span></div>
+            <span class="item-date">2025</span>
+          </div>
+          <ul class="item-bullets">
+            <li>Developed a natural language processing tool for real-time sentiment analysis with emotion classification and keyword extraction</li>
+            <li>Built confidence scoring engine with visual gauges, distributing sentiment across 6 emotion categories with 95%+ accuracy</li>
+            <li>Designed analytics dashboard with sentence-level breakdown, export functionality, and interactive visualizations</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">NLP</span>
+            <span class="tech-tag">Chart.js</span>
+            <span class="tech-tag">AI/ML</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title"><a href="https://tasfinmahmud.github.io/ecommerce-platform/" target="_blank">ShopVibe E-Commerce</a> — <span class="item-subtitle">Full-Stack Online Store</span></div>
+            <span class="item-date">2025</span>
+          </div>
+          <ul class="item-bullets">
+            <li>Architected a complete e-commerce platform with product catalog, real-time search, category filtering, and cart management</li>
+            <li>Implemented persistent shopping cart with LocalStorage, quantity controls, and a multi-step checkout flow</li>
+            <li>Built responsive product grid with lazy loading, image optimization, and mobile-first progressive enhancement</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">Responsive</span>
+            <span class="tech-tag">LocalStorage API</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title"><a href="https://github.com/TasfinMahmud/vibebot" target="_blank">VibeBot</a> — <span class="item-subtitle">AI-Powered Discord Bot</span></div>
+            <span class="item-date">2025</span>
+          </div>
+          <ul class="item-bullets">
+            <li>Engineered a 24/7 intelligent Discord bot with Google Gemini API integration for multi-server deployment</li>
+            <li>Implemented context-aware Bengali language responses with auto-reconnect, rate limiting, and error recovery</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Discord.js</span>
+            <span class="tech-tag">Gemini API</span>
+            <span class="tech-tag">AI</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title"><a href="https://tasfinmahmud.github.io" target="_blank">Portfolio Website</a> — <span class="item-subtitle">React + Framer Motion</span></div>
+            <span class="item-date">2025</span>
+          </div>
+          <ul class="item-bullets">
+            <li>Built a modern React portfolio with Framer Motion scroll animations, interactive particle background, and AI chatbot widget</li>
+            <li>Implemented dark glassmorphism design system, filterable project gallery, working contact form, and 95+ Lighthouse score</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Framer Motion</span>
+            <span class="tech-tag">Vite</span>
+            <span class="tech-tag">CSS3</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Research Interests -->
+      <div class="section">
+        <h2 class="section-title">Research Interests</h2>
+        <ul class="item-bullets">
+          <li><strong>AI in Fintech:</strong> Machine learning applications in algorithmic trading, fraud detection, and credit risk assessment</li>
+          <li><strong>Natural Language Processing:</strong> Sentiment analysis, text classification, and conversational AI systems</li>
+          <li><strong>Open Source Software:</strong> Contributing to OSS ecosystems and preparing for Google Summer of Code 2027</li>
+        </ul>
+      </div>
+
+      <!-- Activities & Achievements -->
+      <div class="section">
+        <h2 class="section-title">Activities & Leadership</h2>
+        <div class="activity-item">
+          <div>
+            <span class="activity-name">Google Summer of Code 2027</span>
+            <span class="activity-detail"> — Actively preparing: building OSS contributions and production-ready projects</span>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div>
+            <span class="activity-name">Open Source Contributor</span>
+            <span class="activity-detail"> — 6+ public repositories with live deployments on GitHub Pages</span>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div>
+            <span class="activity-name">Technical Writer</span>
+            <span class="activity-detail"> — Creating comprehensive study guides and documentation for university courses</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Ctrl+P or Cmd+P to print/save as PDF
+  </script>
+</body>
+</html>
